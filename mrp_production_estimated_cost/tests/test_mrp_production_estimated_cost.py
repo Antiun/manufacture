@@ -20,7 +20,7 @@ class TestMrpProductionEstimatedCost(common.TransactionCase):
         self.production.workcenter_lines[0].op_number = 1
         self.production.signal_workflow('button_confirm')
         self.production.force_production()
-        self.assertEqual(self.production.created_estimated_cost, 7)
+        self.assertEqual(self.production.created_estimated_cost, 11)
         self.assertTrue(self.production.analytic_line_ids.filtered(
             lambda x: x.journal_id == self.journal_materials))
         self.assertTrue(self.production.analytic_line_ids.filtered(
