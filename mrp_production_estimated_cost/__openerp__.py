@@ -22,6 +22,7 @@
     ],
     "depends": [
         "mrp_operations_project",
+        "mrp_project",
         "product_variant_cost_price",
     ],
     "data": [

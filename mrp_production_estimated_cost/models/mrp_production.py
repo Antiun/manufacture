@@ -77,8 +77,8 @@ class MrpProduction(models.Model):
         analytic_line_obj = self.env['account.analytic.line']
         id2 = self.env.ref(
             'mrp_production_estimated_cost.estimated_cost_list_view')
-        search_view = self.env.ref('mrp_project_link.account_analytic_line'
-                                   '_mrp_search_view')
+        search_view = self.env.ref(
+            'mrp_project.account_analytic_line_mrp_search_view')
         analytic_line_list = analytic_line_obj.search(
             [('mrp_production_id', '=', self.id),
              ('task_id', '=', False)])
@@ -97,7 +97,7 @@ class MrpProduction(models.Model):
             'domain': "[('id','in',[" +
             ','.join(map(str, analytic_line_list.ids)) + "])]",
             'context': self.env.context
-            }
+        }
 
     @api.model
     def _prepare_estimated_cost_analytic_line(
